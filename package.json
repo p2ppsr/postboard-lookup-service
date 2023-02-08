@@ -1,0 +1,32 @@
+{
+  "name": "uhrp-lookup-service",
+  "version": "0.0.1",
+  "description": "Provides a lookup service for UHRP tokens.",
+  "main": "src/UHRPLookupService.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "publishConfig": {
+    "registry": "https://npm-registry.babbage.systems/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/p2ppsr/uhrp-lookup-service.git"
+  },
+  "author": "Peer-to-peer Privacy Systems Research LLC",
+  "license": "PROPRIETARY",
+  "bugs": {
+    "url": "https://github.com/p2ppsr/uhrp-lookup-service/issues"
+  },
+  "homepage": "https://github.com/p2ppsr/uhrp-lookup-service#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "knex": "^2.4.2",
+    "mysql": "^2.18.1",
+    "pushdrop": "^0.1.11",
+    "standard": "^17.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.13.0"
+  }
+}
