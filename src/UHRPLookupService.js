@@ -26,13 +26,13 @@ class UHRPLookupService {
     if (topic !== 'UHRP') return
     // Decode the UHRP fields from the Bitcoin outputScript
     const result = pushdrop.decode({
-      script: outputScript.toHex(), // Is Buffer form supported by PushDrop?
+      script: outputScript.toHex(),
       fieldFormat: 'buffer'
     })
 
     // UHRP Account Fields to store
-    const UHRPUrl = result.fields[8].toString('base64')
-    const retentionPeriod = result.fields[10]
+    const UHRPUrl = result.fields[4].toString('utf8')
+    const retentionPeriod = result.fields[5].toString('utf8')
 
     // Store UHRP fields in the StorageEngine
     await this.storageEngine.storeRecord({
