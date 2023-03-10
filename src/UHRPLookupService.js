@@ -8,6 +8,8 @@ const KnexStorageEngine = require('./KnexStorageEngine')
  * then implement it specifically for UHRP
  * StorageEngine should also use an interface and specifically implement it for UHRP
  */
+const UHRP_URL_INDEX = 2
+const EXPIRY_TIME_INDEX = 5
 
 class UHRPLookupService {
   constructor ({ storageEngine }) {
@@ -31,8 +33,9 @@ class UHRPLookupService {
     })
 
     // UHRP Account Fields to store
-    const UHRPUrl = result.fields[4].toString('utf8')
-    const retentionPeriod = result.fields[5].toString('utf8')
+    // Note: Consider storing UHRPUrl as a buffer
+    const UHRPUrl = result.fields[UHRP_URL_INDEX].toString('utf8')
+    const retentionPeriod = result.fields[EXPIRY_TIME_INDEX].toString('utf8')
 
     // Store UHRP fields in the StorageEngine
     await this.storageEngine.storeRecord({
