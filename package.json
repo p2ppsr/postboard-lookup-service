@@ -1,6 +1,6 @@
 {
   "name": "@cwi/uhrp-lookup-service",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Provides a lookup service for UHRP tokens.",
   "main": "src/UHRPLookupService.js",
   "scripts": {
