@@ -1,6 +1,7 @@
 // import { IStorageEngine } from "../confederacy/src/Interfaces/IStorageEngine"
 const pushdrop = require('pushdrop')
 const KnexStorageEngine = require('./KnexStorageEngine')
+const { getURLForHash } = require('uhrp-url')
 
 /**
  * Note: initial implementation uses basic Javascript class implementation and not abstract classes.
@@ -32,9 +33,9 @@ class UHRPLookupService {
       fieldFormat: 'buffer'
     })
 
-    // UHRP Account Fields to store
-    // Note: Consider storing UHRPUrl as a buffer
-    const UHRPUrl = result.fields[UHRP_URL_INDEX].toString('utf8')
+    // UHRP Fields to store
+    // Note: UHRPUrl is converted to a Base58 encoded string
+    const UHRPUrl = getURLForHash(result.fields[UHRP_URL_INDEX])
     const retentionPeriod = result.fields[EXPIRY_TIME_INDEX].toString('utf8')
 
     // Store UHRP fields in the StorageEngine
@@ -89,4 +90,3 @@ class UHRPLookupService {
 }
 UHRPLookupService.KnexStorageEngine = KnexStorageEngine
 module.exports = UHRPLookupService
-
