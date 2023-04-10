@@ -1,7 +1,7 @@
 // import { IStorageEngine } from "../confederacy/src/Interfaces/IStorageEngine"
 const pushdrop = require('pushdrop')
 const KnexStorageEngine = require('./KnexStorageEngine')
-const { getURLForHash } = require('uhrp-url')
+const { getURLForHash, normalizeURL } = require('uhrp-url') // TODO: Upgrade version
 
 /**
  * Note: initial implementation uses basic Javascript class implementation and not abstract classes.
@@ -74,8 +74,9 @@ class UHRPLookupService {
       throw e
     }
     if (query.UHRPUrl) {
+      const normalizedUHRPUrl = normalizeURL(query.UHRPUrl)
       return await this.storageEngine.findByUHRPUrl({
-        UHRPUrl: query.UHRPUrl
+        UHRPUrl: normalizedUHRPUrl
       })
     } else if (query.retentionPeriod) {
       return await this.storageEngine.findByretentionPeriod({
