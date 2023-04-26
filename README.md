@@ -1,6 +1,6 @@
-# UHRP Lookup Service
+# Postboard Lookup Service
 
-Provides a lookup service for UHRP tokens.
+Provides a lookup service for Postboard tokens.
 
 ## Usage
 
@@ -8,7 +8,7 @@ This example configures the lookup service with its built-in Knex storage engine
 
 ```js
 const Confederacy = require('confederacy')
-const UHRPLookup = require('uhrp-lookup')
+const PostboardLookup = require('postboard-lookup-service')
 
 // Define your knexfile, either by requiring it...
 const knexfile = require('../location/of/knexfile.js')
@@ -28,8 +28,8 @@ const confederacy = new Confederacy({
     // ...
   },
   lookupServices: {
-    UHRP: new UHRPLookup({
-      storageEngine: new UHRPLookup.KnexStorageEngine({
+    Postboard: new PostboardLookup({
+      storageEngine: new PostboardLookup.KnexStorageEngine({
         knex
       })
     })
@@ -43,8 +43,8 @@ You will also need to create a new database migration in your application to all
 
 ```js
 // src/migrations/yyyy-mm-dd-001-add-uhrp-lookup.js
-const UHRPLookup = require('uhrp-lookup')
-const engine = new UHRPLookup.KnexStorageEngine({
+const PostboardLookup = require('postboard-lookup')
+const engine = new PostboardLookup.KnexStorageEngine({
   knex
 })
 
