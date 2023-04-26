@@ -1,6 +1,6 @@
 {
   "name": "postboard-lookup-service",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "Provides a lookup service for Postboard tokens.",
   "main": "src/PostboardLookupService.js",
   "scripts": {
@@ -21,7 +21,7 @@
     "knex": "^2.4.2",
     "mysql": "^2.18.1",
     "pushdrop": "^0.1.11",
-    "standard": "^17.0.0",
+    "standard": "^17.0.0"
   },
   "devDependencies": {
     "@types/node": "^18.13.0"
