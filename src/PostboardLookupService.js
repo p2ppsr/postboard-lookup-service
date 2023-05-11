@@ -23,8 +23,8 @@ class PostboardLookupService {
     })
 
     // Postboard Fields to store
-    const identityKey = result.lockingPublicKey
-    const message = result.fields[1].toString('utf8')
+    const identityKey = result.fields[1].toString('hex')
+    const message = result.fields[2].toString('utf8')
 
     // Store Postboard fields in the StorageEngine
     await this.storageEngine.storeRecord({
