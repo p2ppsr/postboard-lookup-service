@@ -1,6 +1,6 @@
 {
   "name": "postboard-lookup-service",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Provides a lookup service for Postboard tokens.",
   "main": "src/PostboardLookupService.js",
   "scripts": {
